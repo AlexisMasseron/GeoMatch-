@@ -2,15 +2,15 @@ pragma solidity ^0.4.4;
 
 contract GeoMatch{
 
-  function GeoMatch(){
-
-    struct Geohash{
+    struct Geohash {
       bytes polygone;
       bytes line;
       bytes point;
     }
-
+    
     Geohash[] globalHash;
+    
+  function GeoMatch(){
 
     globalHash.polygone = addPolygone();
     globalHash.line = addLine();
@@ -21,15 +21,15 @@ contract GeoMatch{
   }
 
   function addPolygone(){
-    return [];
+    return ["QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1", "QmXVaEhjtfsCZ3pPNPf2LKR3U9rqEyNXY2TdxW4Ad9p37u"];
   }
 
   function addLine(){
-    return [];
+    return ["QmWHGnYtCkjgeevw9udPgoYb51KUA32TcNuhSVymSFgHej", "QmPof8rDuRPCYc2BgEhP1dDNXPtPCzFKfGHunTc74npypx"];
   }
 
   function addPoint(){
-    return [];
+    return ["QmZpoCrgWntmxBQL5RAEWy4Y9LXMrna4eS8dyBvxhkvowz", "QmSmy1jcEgewCiJVKFHabANScUF7Mn3GcWxbzgfbR9jVJR"];
   }
 
 
