@@ -1,4 +1,4 @@
-pragma solidity ^0.4.4;
+pragma solidity ^0.4.8;
 
 contract GeoMatch{
 
@@ -14,18 +14,11 @@ contract GeoMatch{
   }
 
   function isAlive() returns (bool success){
-    return true
-  }
-
-  function sendHash(){
-    addPolygone();
-    addLine();
-    addPoint();
-    return globalHash;
+    return true;
   }
 
   function addGeoHash(bytes polygone, bytes line, bytes point){
-    geoHash geoHashTemp = geoHash(polygone, line, point);
+    Geohash geoHashTemp = Geohash(polygone, line, point);
     globalHash.push(geoHashTemp);
   }
 }
