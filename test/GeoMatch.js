@@ -6,7 +6,10 @@ contract('GeoMatch', function(accounts) {
 
     return MetaCoin.deployed()
         .then(function(instance){
-            assert.equal(instance.isAlive(), true);
+            return instance.isAlive();
+        })
+        .then(function(alive) {
+            assert.equal(alive, true);
         })
   });
 
