@@ -2,38 +2,30 @@ pragma solidity ^0.4.4;
 
 contract GeoMatch{
 
-  function GeoMatch(){
-
-    struct Geohash{
+    struct Geohash {
       bytes polygone;
       bytes line;
       bytes point;
     }
 
-    Geohash[] globalHash;
+  Geohash[] globalHash;
 
-    globalHash.polygone = addPolygone();
-    globalHash.line = addLine();
-    globalHash.point = addPoint();
+  function GeoMatch(){
+  }
 
+  function isAlive() returns (bool success){
+    return true
+  }
+
+  function sendHash(){
+    addPolygone();
+    addLine();
+    addPoint();
     return globalHash;
-
   }
 
-  function addPolygone(){
-    return [];
+  function addGeoHash(bytes polygone, bytes line, bytes point){
+    geoHash geoHashTemp = geoHash(polygone, line, point);
+    globalHash.push(geoHashTemp);
   }
-
-  function addLine(){
-    return [];
-  }
-
-  function addPoint(){
-    return [];
-  }
-
-function isAlive() returns (bool success){
-return true
-}
-
 }
