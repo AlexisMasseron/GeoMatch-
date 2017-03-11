@@ -32,5 +32,8 @@ contract GeoMatch{
     return [];
   }
 
+function isAlive() returns (bool success){
+return true
+}
 
 }
