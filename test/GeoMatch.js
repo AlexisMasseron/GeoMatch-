@@ -2,7 +2,12 @@ var GeoMatch = artifacts.require("./GeoMatch.sol");
 
 contract('GeoMatch', function (accounts) {
 
-    it("Deploy test", function () {
+    var polygone = 'QmTjXvDjPtaSP2G1yiVwcugEMBaoVT4q9ZPxuQQBHsYgUw';
+    var line = 'QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1';
+    var point = 'QmXVaEhjtfsCZ3pPNPf2LKR3U9rqEyNXY2TdxW4Ad9p37u';
+
+
+    it.skip("Deploy test", function () {
 
         var instance;
 
@@ -22,11 +27,7 @@ contract('GeoMatch', function (accounts) {
             })
     });
 
-    it.only('addGeoHash', function () {
-
-        var polygone = 'QmTjXvDjPtaSP2G1yiVwcugEMBaoVT4q9ZPxuQQBHsYgUw';
-        var line = 'QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1';
-        var point = 'QmXVaEhjtfsCZ3pPNPf2LKR3U9rqEyNXY2TdxW4Ad9p37u';
+    it.skip('addGeoHash', function () {
 
         var instance;
 
@@ -42,9 +43,67 @@ contract('GeoMatch', function (accounts) {
                 return instance.getGeoHash.call(0);
             })
             .then(function(result){
-                //console.log('getGeoHash result :', web3.toAscii(result));
+                console.log('getGeoHash result :', web3.toAscii(result));
                 assert.equal(web3.toAscii(result), polygone);
             })
+    })
+
+    it.only('addGeoHash 2', function () {
+
+        var instance;
+
+        return GeoMatch.deployed()
+
+            // POLYGONE
+            .then(function (_instance) {
+                instance = _instance;
+                return instance.addGeoHash.sendTransaction(polygone);
+            })
+
+
+            // LINE
+            .then(function(){
+                return instance.addGeoHash.sendTransaction(line);
+            })
+
+
+            // POINT
+            .then(function(){
+                return instance.addGeoHash.sendTransaction(point);
+            })
+
+            .then(function () {
+                return instance.getGeoHash.sendTransaction(0);
+            })
+            .then(function (){
+                return instance.getGeoHash.call(0);
+            })
+            .then(function(result){
+            assert.equal(web3.toAscii(result), polygone);
+            })
+
+
+            .then(function () {
+                return instance.getGeoHash.sendTransaction(1);
+            })
+            .then(function (){
+                return instance.getGeoHash.call(1);
+            })
+            .then(function(result){
+                assert.equal(web3.toAscii(result), line);
+            })
+
+
+            .then(function () {
+                return instance.getGeoHash.sendTransaction(2);
+            })
+            .then(function (){
+                return instance.getGeoHash.call(2);
+            })
+            .then(function(result){
+                assert.equal(web3.toAscii(result), point);
+            })
+
     })
 
     /*
