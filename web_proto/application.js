@@ -6,7 +6,8 @@ function addDataToMap(data, map) {
 function getSmartContractHash(){
 		var hash=document.forms["form1"]["schash"].value;
 		if (hash=="///"){
-			return true;
+			$.getJSON("http://ipfs.io/ipfs/QmVa2sCp5g2wLfnf7cdVrm32Jq2ynw6pzXBHwKd3fHnJre", function(data) { addDataToMap(data, map); });
+			return false;
 		}
 		else{
 			$("#erreur").append("Warning: Hash not recognised");
@@ -35,8 +36,6 @@ $(document).ready(function() {
 
 	// Set the initial viewport of the map. Here we're centering on Savas Labs' hometown and zooming out a bit.
 	map.setView([48.862442, 2.2792854], 12);
-	
-	$.getJSON("http://ipfs.io/ipfs/QmVa2sCp5g2wLfnf7cdVrm32Jq2ynw6pzXBHwKd3fHnJre", function(data) { addDataToMap(data, map); });
 
 
 });
