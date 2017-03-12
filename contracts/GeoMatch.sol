@@ -6,7 +6,7 @@ contract GeoMatch{
 
   event NewGeoHash(uint _value, bytes polygone, bytes line, bytes point);
 
-  bytes[] geoHash;
+  bytes[] public geoHash;
 
   function addGeoHash(bytes _geoHash) returns (bool){
 
