@@ -6,12 +6,25 @@
 	<title>GeoMatch</title>
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
 	<script src="application.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body>
-	<div id="mapid"></div>
+	<header>GeoMap</header>
+	<div id="container">
+		<div id="mapid"></div>
+			<div id="inputclient">
+				<form name="form1" onsubmit="return getSmartContractHash()">
+				<label for="schash">Please enter the Smart Contract hash:</label>
+				<input type="text" name="schash" id="schash">
+				<input type="submit" value="Go" style="width: 40px">
+			</form>
+			<div id="erreur"></div>
+		</div>
+		
+	</div>
 </body>
 
 </html>

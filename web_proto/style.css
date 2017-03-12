@@ -1,12 +1,43 @@
 body{
 	margin: 0;
 	padding: 0;
+	justify-content: center;
+	height: 100vh;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 20px;
+	color: white;
+	background-image: url(img/gradient1.jpg);
+}
+header{
+	font-size: 80px;
+	text-align: center;
+	padding: 30px;
+}
+
+#container{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100vh;
+	justify-content: space-between;
+	justify-content: space-around; 
+	flex-direction: column;
+
 }
 #mapid { 
-	height: 600px;
-	width: 600px;
+	height: 400px;
+	width: 90%;
+}
+#inputclient{
+	display: flex;
+	margin: 20px;
+	width: 700px;
+}
+form{
+	display: flex;
+	justify-content: space-around;
+	width: 500px;
+}
+#erreur{
+	color: red;
+	width: 200px;
 }

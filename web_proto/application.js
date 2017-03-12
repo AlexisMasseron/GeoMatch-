@@ -3,9 +3,28 @@ function addDataToMap(data, map) {
     var dataLayer = L.geoJson(data);
     dataLayer.addTo(map);
 }
+function getSmartContractHash(){
+		var hash=document.forms["form1"]["schash"].value;
+		if (hash=="///"){
+			return true;
+		}
+		else{
+			$("#erreur").append("Warning: Hash not recognised");
+			return false;
+		}
+	}
 
 $(document).ready(function() {
 	var map = L.map('mapid');
+	map.scrollWheelZoom.disable();
+	map.on('click', function() {
+	  if (map.scrollWheelZoom.enabled()) {
+	    map.scrollWheelZoom.disable();
+	    }
+	    else {
+	    map.scrollWheelZoom.enable();
+	    }
+	  });
 
 	var terrainTiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 		maxZoom: 19,
