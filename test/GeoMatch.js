@@ -43,7 +43,7 @@ contract('GeoMatch', function (accounts) {
                 return instance.getGeoHash.call(0);
             })
             .then(function(result){
-                console.log('getGeoHash result :', web3.toAscii(result));
+                //console.log('getGeoHash result :', web3.toAscii(result));
                 assert.equal(web3.toAscii(result), polygone);
             })
     })
@@ -104,6 +104,43 @@ contract('GeoMatch', function (accounts) {
                 assert.equal(web3.toAscii(result), point);
             })
 
+    })
+
+    it('getGeoHashLength', function(){
+        var instance;
+
+        return GeoMatch.new()
+            .then(function (_instance) {
+                instance = _instance;
+
+            })
+
+            // POLYGONE
+            .then(function () {
+                return instance.addGeoHash.sendTransaction(polygone);
+            })
+
+
+
+            // LINE
+            .then(function(){
+                return instance.addGeoHash.sendTransaction(line);
+            })
+
+
+            // POINT
+            .then(function(){
+                return instance.addGeoHash.sendTransaction(point);
+            })
+
+
+            .then(function(){
+                return instance.getGeoHashLength.call();
+            })
+            .then(function(result){
+                //console.log('getGeoHashLength', result, web3.toBigNumber(result).toString())
+                assert.equal(result, '3');
+            })
     })
 
     /*
