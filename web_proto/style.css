@@ -41,3 +41,14 @@ form{
 	color: red;
 	width: 200px;
 }
+
+input{
+	border-radius: 3px;
+	border : none;
+	margin-top:2px;
+}
+
+input[type="text"]{
+	padding:5px;
+	padding-left: 7px;
+}
