@@ -2,16 +2,16 @@ var GeoMatch = artifacts.require("./GeoMatch.sol");
 
 contract('GeoMatch', function (accounts) {
 
-    var polygone = 'QmTjXvDjPtaSP2G1yiVwcugEMBaoVT4q9ZPxuQQBHsYgUw';
-    var line = 'QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1';
-    var point = 'QmXVaEhjtfsCZ3pPNPf2LKR3U9rqEyNXY2TdxW4Ad9p37u';
+    var polygone = 'POLY-QmTjXvDjPtaSP2G1yiVwcugEMBaoVT4q9ZPxuQQBHsYgUw';
+    var line = 'LINE-QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1';
+    var point = 'POINT-QmXVaEhjtfsCZ3pPNPf2LKR3U9rqEyNXY2TdxW4Ad9p37u';
 
 
-    it.skip("Deploy test", function () {
+    it("Deploy test", function () {
 
         var instance;
 
-        return GeoMatch.deployed()
+        return GeoMatch.new()
             .then(function (_instance) {
                 instance = _instance;
                 //console.log('Deploy test instance', instance)
@@ -27,11 +27,11 @@ contract('GeoMatch', function (accounts) {
             })
     });
 
-    it.skip('addGeoHash', function () {
+    it('addGeoHash', function () {
 
         var instance;
 
-        return GeoMatch.deployed()
+        return GeoMatch.new()
             .then(function (_instance) {
                 instance = _instance;
                 return instance.addGeoHash.sendTransaction(polygone);
@@ -48,11 +48,11 @@ contract('GeoMatch', function (accounts) {
             })
     })
 
-    it.only('addGeoHash 2', function () {
+    it('addGeoHash 2', function () {
 
         var instance;
 
-        return GeoMatch.deployed()
+        return GeoMatch.new()
 
             // POLYGONE
             .then(function (_instance) {

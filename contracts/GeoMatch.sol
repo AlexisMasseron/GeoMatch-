@@ -17,7 +17,11 @@ contract GeoMatch{
     return true;
   }
 
-  function getGeoHash(uint index) returns (bytes geohashID){
+  function getGeoHash(uint index) constant returns (bytes geohashID){
     return geoHash[index];
+  }
+
+  function getGeoHashLength() constant returns (uint){
+    return geoHash.length;
   }
 }
