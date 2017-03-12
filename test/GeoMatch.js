@@ -2,7 +2,7 @@ var GeoMatch = artifacts.require("./GeoMatch.sol");
 
 contract('GeoMatch', function (accounts) {
 
-    it.only("Deploy test", function () {
+    it("Deploy test", function () {
 
         var instance;
 
@@ -22,7 +22,7 @@ contract('GeoMatch', function (accounts) {
             })
     });
 
-    it('addGeoHash', function () {
+    it.only('addGeoHash', function () {
 
         var polygone = 'QmTjXvDjPtaSP2G1yiVwcugEMBaoVT4q9ZPxuQQBHsYgUw';
         var line = 'QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1';
@@ -31,22 +31,20 @@ contract('GeoMatch', function (accounts) {
         var instance;
 
         return GeoMatch.deployed()
-
             .then(function (_instance) {
                 instance = _instance;
                 return instance.addGeoHash.sendTransaction(polygone);
             })
-
             .then(function (transactionHash) {
-                console.log('addGeoHash', transactionHash);
-                instance.addGeoHash.call();
+                return instance.getGeoHash.sendTransaction(0);
             })
-
-            .then(function (error, result){
-            console.log('addGeoHash', error,result);
+            .then(function (result){
+                return instance.getGeoHash.call(0);
             })
-
-
+            .then(function(result){
+                //console.log('getGeoHash result :', web3.toAscii(result));
+                assert.equal(web3.toAscii(result), polygone);
+            })
     })
 
     /*

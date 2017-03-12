@@ -8,16 +8,16 @@ contract GeoMatch{
 
   bytes[] geoHash;
 
-  function addGeoHash(bytes _geoHash) returns (bytes){
+  function addGeoHash(bytes _geoHash) returns (bool){
 
     bytes memory geoFab = _geoHash;
 
     geoHash.push(geoFab);
 
-    return geoFab;
+    return true;
   }
 
-  function getGeoHash() returns (uint geohashID){
-    return geohashID;
+  function getGeoHash(uint index) returns (bytes geohashID){
+    return geoHash[index];
   }
 }
