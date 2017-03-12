@@ -11,7 +11,7 @@ contract GeoMatch{
     uint numGeohash;
     mapping (uint => Geohash) globalHash;
 
-  //Geohash[] globalHash;
+  event NewGeoHash(uint _value, bytes polygone, bytes line, bytes point);
 
   function GeoMatch(){
   }
@@ -22,8 +22,12 @@ contract GeoMatch{
 
   function addGeoHash(bytes polygone, bytes line, bytes point) returns (uint geohashID){
     geohashID = numGeohash++;
-    //Geohash geoHashTemp = Geohash(polygone, line, point);
     globalHash[geohashID] = Geohash(polygone, line, point);
+    NewGeoHash(geohashID,  polygone,  line,  point);
+    return geohashID;
+  }
+
+  function getGeoHash() returns (uint geohashID){
     return geohashID;
   }
 }

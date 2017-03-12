@@ -2,14 +2,15 @@ var MetaCoin = artifacts.require("./GeoMatch.sol");
 
 contract('GeoMatch', function (accounts) {
 
-    it.skip("Deploy test", function () {
+    it("Deploy test", function () {
 
         return MetaCoin.deployed()
             .then(function (instance) {
                 return instance.isAlive();
             })
-            .then(function (alive) {
-                assert.isTrue(alive);
+            .then(function (result) {
+                console.log("Deploy test", result);
+                assert.isTrue(true);
             })
     });
 
@@ -24,7 +25,7 @@ contract('GeoMatch', function (accounts) {
                 return instance.addGeoHash(polygone, line, point);
             })
             .then(function (result) {
-                console.log(result);
+                console.log('addGeoHash', result);
                 assert.isTrue(true);
             })
     })
