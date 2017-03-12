@@ -1,16 +1,24 @@
-var MetaCoin = artifacts.require("./GeoMatch.sol");
+var GeoMatch = artifacts.require("./GeoMatch.sol");
 
 contract('GeoMatch', function (accounts) {
 
-    it("Deploy test", function () {
+    it.only("Deploy test", function () {
 
-        return MetaCoin.deployed()
-            .then(function (instance) {
-                return instance.isAlive();
+        var instance;
+
+        return GeoMatch.deployed()
+            .then(function (_instance) {
+                instance = _instance;
+                //console.log('Deploy test instance', instance)
+                return instance.isAlive.sendTransaction();
             })
-            .then(function (result) {
-                console.log("Deploy test", result);
-                assert.isTrue(true);
+            .then(function (transactionHash) {
+                //console.log("Deploy test", transactionHash);
+                return instance.isAlive.call();
+            })
+            .then(function(result){
+                //console.log(result);
+                assert.isTrue(result);
             })
     });
 
@@ -20,14 +28,25 @@ contract('GeoMatch', function (accounts) {
         var line = 'QmNr5ZsrfnK945coeMPZNXj9qHm8YyvdQRqUbgLTsHUnb1';
         var point = 'QmXVaEhjtfsCZ3pPNPf2LKR3U9rqEyNXY2TdxW4Ad9p37u';
 
-        return MetaCoin.deployed()
-            .then(function (instance) {
-                return instance.addGeoHash(polygone, line, point);
+        var instance;
+
+        return GeoMatch.deployed()
+
+            .then(function (_instance) {
+                instance = _instance;
+                return instance.addGeoHash.sendTransaction(polygone);
             })
-            .then(function (result) {
-                console.log('addGeoHash', result);
-                assert.isTrue(true);
+
+            .then(function (transactionHash) {
+                console.log('addGeoHash', transactionHash);
+                instance.addGeoHash.call();
             })
+
+            .then(function (error, result){
+            console.log('addGeoHash', error,result);
+            })
+
+
     })
 
     /*
