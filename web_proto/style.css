@@ -9,9 +9,12 @@ body{
 	background-image: url(img/gradient1.jpg);
 }
 header{
-	font-size: 80px;
-	text-align: center;
-	padding: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+img{
+	width: 350px;
 }
 
 #container{
@@ -24,18 +27,15 @@ header{
 
 }
 #mapid { 
-	height: 400px;
+	height: 480px;
 	width: 90%;
 }
-#inputclient{
-	display: flex;
-	margin: 20px;
-	width: 700px;
-}
+
 form{
 	display: flex;
 	justify-content: space-around;
-	width: 500px;
+	width: 550px;
+	margin-top: 30px;
 }
 #erreur{
 	color: red;
@@ -51,4 +51,11 @@ input{
 input[type="text"]{
 	padding:5px;
 	padding-left: 7px;
+	width: 300px;
+}
+
+input[type="submit"]{
+	background: none;
+	border: 1px solid white;
+	color: white;
 }

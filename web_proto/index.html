@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>GeoMatch</title>
+	<link href="img/favicon.gif" rel="icon">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
@@ -12,15 +13,18 @@
 	<script src="application.js" type="text/javascript" charset="utf-8" async defer></script>
 </head>
 <body>
-	<header>GeoMap</header>
+	<header>
+		<figure>
+			<img src="img/logo.png" alt="logo">
+		</figure>
+	</header>
 	<div id="container">
 		<div id="mapid"></div>
-			<div id="inputclient">
-				<form name="form1" onsubmit="return getSmartContractHash()">
-				<label for="schash">Please enter the Smart Contract hash:</label>
-				<input type="text" name="schash" id="schash">
-				<input type="submit" value="Go" style="width: 40px">
-			</form>
+				<form method="POST" name="form1" onsubmit="return getSmartContractHash()">
+					<label for="schash">Smart Contract hash:</label>
+					<input type="text" name="schash" id="schash">
+					<input type="submit" value="Go" style="width: 40px">
+				</form>
 			<div id="erreur"></div>
 		</div>
 		

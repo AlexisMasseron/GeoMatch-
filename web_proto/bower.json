@@ -1,0 +1,17 @@
+{
+  "name": "web_proto",
+  "homepage": "https://github.com/AlexisMasseron/GeoMatch-",
+  "authors": [
+    "Baptiste Arnaud <baptiste.arnaud95@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
